@@ -9,30 +9,15 @@ package com.mycompany.primerapractica.modelos;
  * @author manu
  */
 public class Carrera {
-    private String noCarrera;
-    private String[] corredores= new String[10];
+    private static int noCarrera;
     private String[] ordenFinal= new String[10];
 
-    public Carrera(String noCarrera, String[] corredores) {
-        this.noCarrera = noCarrera;
-        this.corredores = corredores;
+    
+    public Carrera(){
+        noCarrera++;
     }
 
-    public String getNoCarrera() {
-        return noCarrera;
-    }
-
-    public void setNoCarrera(String noCarrera) {
-        this.noCarrera = noCarrera;
-    }
-
-    public String[] getCorredores() {
-        return corredores;
-    }
-
-    public void setCorredores(String[] corredores) {
-        this.corredores = corredores;
-    }
+    
 
     public String[] getOrdenFinal() {
         return ordenFinal;

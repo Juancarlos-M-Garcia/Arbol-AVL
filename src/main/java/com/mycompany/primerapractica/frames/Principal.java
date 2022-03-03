@@ -4,17 +4,24 @@
  */
 package com.mycompany.primerapractica.frames;
 
+import com.mycompany.primerapractica.manejadores.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author manu
  */
 public class Principal extends javax.swing.JFrame {
 
+    private ManejadorCarrera carrera;
+    private boolean carreraActiva = false;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        
+        this.ApostarButton.setEnabled(false);
     }
 
     /**
@@ -97,7 +104,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/primerapractica/frames/images/fondo.jpeg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/manu/NetBeansProjects/Estructura de datos/PrimeraPractica/src/main/java/com/mycompany/primerapractica/frames/images/fondo.jpeg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -148,10 +155,33 @@ public class Principal extends javax.swing.JFrame {
 
     private void crearCarreraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCarreraButtonActionPerformed
         // TODO add your handling code here:
+        try {
+            this.carrera = new ManejadorCarrera();
+            this.carreraActiva = true;
+            this.ApostarButton.setEnabled(true);
+            this.crearCarreraButton.setEnabled(false);
+            
+        } catch (Exception e) {
+        }
+        
+        
     }//GEN-LAST:event_crearCarreraButtonActionPerformed
 
     private void ApostarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApostarButtonActionPerformed
         // TODO add your handling code here:
+        try {
+            if(carreraActiva){
+                NuevaApuesta ventana = new NuevaApuesta(this, true);
+                ManejadorNuevaApuesta manejador = new ManejadorNuevaApuesta(ventana, this.carrera);
+                ventana.setManejador(manejador);
+                ventana.setVisible(true);
+                carrera.imprimirNombres();
+            }
+               
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
     }//GEN-LAST:event_ApostarButtonActionPerformed
 
     /**

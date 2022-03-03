@@ -13,6 +13,8 @@ public class Apuesta {
     private String nombreApostador; 
     private double monto;
     private int[] posiciones = new int[10];
+    private String[] datos ;
+    private boolean validez = false;
     
     public Apuesta(String NombreApostador, Double monto, int first, int secund,
                     int third, int four, int fifth, int six, int seven,
@@ -37,6 +39,54 @@ public class Apuesta {
         this.posiciones = Orden;
     
     }
+    
+    public Apuesta(String[]datos){
+        this.datos = datos;
+    }
+    
+    public void verificarDatos(){
+        try {
+            if(datos.length==12){
+            
+                this.validez = true;
+            }else{
+                this.validez = false;
+            }
+            
+            
+        } catch (Exception e) {
+            this.validez = false;
+        }
+    }
+    
+    public String verificarNombre(String nombre){
+        String n = null;
+        try {
+            n = (String)nombre;
+        } catch (Exception e) {
+            validez = false;
+        }
+        return n;
+    }
+    public double verificarMonto(String monto){
+        double m = 0;
+        try {
+            m = Double.parseDouble(monto);
+        } catch (Exception e) {
+            this.validez = false;
+        }
+        return m;
+    }
+    public int verificarNumero( String numero){
+        int n = 0;
+        try {
+            
+        } catch (Exception e) {
+            this.validez = false;
+        }
+        return n;
+    }
+    
 
     public String getNombreApostador() {
         return nombreApostador;
