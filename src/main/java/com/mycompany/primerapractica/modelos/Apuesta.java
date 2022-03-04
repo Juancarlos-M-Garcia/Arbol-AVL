@@ -40,51 +40,67 @@ public class Apuesta {
     
     }
     
-    public Apuesta(String[]datos){
-        this.datos = datos;
-    }
-    
-    public void verificarDatos(){
+    public void verificarDatos(String[]datos, boolean validez){
         try {
-            if(datos.length==12){
-            
-                this.validez = true;
-            }else{
-                this.validez = false;
+            for(int i= 0; i<datos.length; i++ ){	
+                switch(i){
+			case 0:				
+				this.nombreApostador = (String)datos[i];
+                                
+			case 1:					
+				this.monto= Double.parseDouble(datos[i]);	
+                        default:					
+				this.posiciones[i-2] = Integer.parseInt(datos[i]); 
+		}
             }
-            
-            
-        } catch (Exception e) {
-            this.validez = false;
-        }
-    }
-    
-    public String verificarNombre(String nombre){
-        String n = null;
-        try {
-            n = (String)nombre;
+		if(this.posiciones.length==10){			
+                    for(int i= 0; i<10; i++ ){
+                        if(posiciones[i]>0 && posiciones[i]<11){
+                            validez = true;
+                        }else{
+                            validez= false;
+                            break;
+                        }
+                    
+                    }
+                    			
+		}else{						
+			validez = false;
+                }
         } catch (Exception e) {
             validez = false;
         }
-        return n;
     }
-    public double verificarMonto(String monto){
-        double m = 0;
-        try {
-            m = Double.parseDouble(monto);
-        } catch (Exception e) {
-            this.validez = false;
-        }
-        return m;
-    }
-    public int verificarNumero( String numero){
-        int n = 0;
-        try {
+       
+    
+    public boolean isNumerosRepetidos(int[]datos, int disponibles){
+        boolean x = false;
             
-        } catch (Exception e) {
-            this.validez = false;
-        }
-        return n;
+        
+        
+        return x;
+    }
+    
+    
+    
+    public Apuesta(String[]datos){
+        this.datos = datos;
+    }
+
+    public String[] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(String[] datos) {
+        this.datos = datos;
+    }
+
+    public boolean isValidez() {
+        return validez;
+    }
+
+    public void setValidez(boolean validez) {
+        this.validez = validez;
     }
     
 

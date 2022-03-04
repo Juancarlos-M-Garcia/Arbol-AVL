@@ -4,10 +4,42 @@
  */
 package com.mycompany.primerapractica.archivos;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import com.mycompany.primerapractica.modelos.Apuesta;
+
 /**
  *
  * @author manu
  */
 public class LecturaArchivo {
     
+    
+        public void leerFichero(File archivo) throws FileNotFoundException, IOException {
+        FileReader fr = new FileReader(archivo);
+        BufferedReader br = new BufferedReader(fr);
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            //con la linea leida, separamos los campos
+            String[] campos = separarCampos(linea);
+            Apuesta nueva = new Apuesta(campos);
+            //pasamos el texto a objeto
+           
+        }
+        fr.close(); 
+        
+    }
+    
+       public String[] separarCampos( String linea){
+        String lineaDeCampos = linea;
+        System.out.println(lineaDeCampos);
+        String[] campos = lineaDeCampos.split(",");
+        return campos;
+    }
+    
+       
+       
 }
