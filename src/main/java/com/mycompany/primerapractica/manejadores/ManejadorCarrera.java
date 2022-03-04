@@ -4,6 +4,8 @@
  */
 package com.mycompany.primerapractica.manejadores;
 
+import com.mycompany.primerapractica.listas.Lista;
+import com.mycompany.primerapractica.listas.Nodo;
 import com.mycompany.primerapractica.modelos.Apuesta;
 import javax.swing.JOptionPane;
 
@@ -14,47 +16,39 @@ import javax.swing.JOptionPane;
 public class ManejadorCarrera {
     
     public static int carrera = 0;
-    public Apuesta[] apuestas;
+    public static Lista<Apuesta> apuestas;
     
     
     public ManejadorCarrera() {
         carrera++;
+        apuestas = new Lista<Apuesta>();
+    }
+    
+    
+    public static void agregarApuesta(Apuesta apuesta){
+        
+        ManejadorCarrera.apuestas.add(apuesta);
         
     }
     
     
-    public void agregarApuesta(Apuesta apuesta){
-        Apuesta temp[];
-        try{
-            if(apuestas == null){
-                apuestas = new Apuesta[1];
-                apuestas[0]= apuesta;
-            }else{
-                temp = new Apuesta[apuestas.length+1];
-                for(int i = 0 ; i<temp.length; i++){
-                    if(i<apuestas.length){
-                        temp[i]= apuestas[i];
-                    }else if(i>apuestas.length){
-                        JOptionPane.showMessageDialog(null,"Error en la matrix xd");
-                    }else{
-                        temp[i]= apuesta;
-                    }
-                }
-                this.apuestas = temp;
-            }
-        }catch(Exception e){
-            System.out.println(e);
-        }
-    }
-    
-    
-    public void imprimirNombres(){
+    public static void imprimirNombres(Nodo<Apuesta> apuesta){
         
         try {
-            for(int i = 0; i<apuestas.length; i++ ){
-                System.out.println(apuestas[i].getNombreApostador()+" apostó $"+apuestas[i].getMonto());
-            } 
-            
+            Nodo<Apuesta> evaluar;
+            if(apuesta == null){
+                evaluar = apuestas.getPrimerNodo();
+            }else{
+                evaluar = apuesta;
+            }
+            if(evaluar.getSiguiente() == null){
+                System.out.println(evaluar.getContenido().getNombreApostador()+
+                        " aposto "+evaluar.getContenido().getMonto()+evaluar.getContenido().isValidez());
+            }else{
+                System.out.println(evaluar.getContenido().getNombreApostador()+
+                        " aposto "+evaluar.getContenido().getMonto()+evaluar.getContenido().isValidez());
+                imprimirNombres(evaluar.getSiguiente());
+            }           
         } catch (Exception e) {
         }
           

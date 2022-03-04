@@ -10,6 +10,7 @@ package com.mycompany.primerapractica.frames;
  */
 public class IngresoResultados extends javax.swing.JDialog {
 
+    boolean ingresoValido = false;
     /**
      * Creates new form IngresoResultados
      */
@@ -17,6 +18,16 @@ public class IngresoResultados extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public boolean isIngresoValido() {
+        return ingresoValido;
+    }
+
+    public void setIngresoValido(boolean ingresoValido) {
+        this.ingresoValido = ingresoValido;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,49 +41,36 @@ public class IngresoResultados extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        numerosBox9 = new javax.swing.JComboBox<>();
-        segundoLabel = new javax.swing.JLabel();
-        terceLabel = new javax.swing.JLabel();
-        octavoLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         hechoButton = new javax.swing.JButton();
-        numerosBox3 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        GanadorLabel = new javax.swing.JLabel();
+        posicionTextField9 = new javax.swing.JTextField();
+        posicionTextField7 = new javax.swing.JTextField();
+        posicionTextField3 = new javax.swing.JTextField();
+        terceLabel = new javax.swing.JLabel();
+        posicionTextField5 = new javax.swing.JTextField();
         novenoLabel = new javax.swing.JLabel();
-        numerosBox6 = new javax.swing.JComboBox<>();
+        decimoLabel = new javax.swing.JLabel();
+        segundoLabel = new javax.swing.JLabel();
+        posicionTextField10 = new javax.swing.JTextField();
+        posicionTextField8 = new javax.swing.JTextField();
+        posicionTextField1 = new javax.swing.JTextField();
+        posicionTextField4 = new javax.swing.JTextField();
+        posicionTextField2 = new javax.swing.JTextField();
         cuartoLabel = new javax.swing.JLabel();
         quintoLabel = new javax.swing.JLabel();
-        numerosBox5 = new javax.swing.JComboBox<>();
-        sextoLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        numerosBox8 = new javax.swing.JComboBox<>();
-        numerosBox1 = new javax.swing.JComboBox<>();
-        decimoLabel = new javax.swing.JLabel();
-        GanadorLabel = new javax.swing.JLabel();
-        numerosBox7 = new javax.swing.JComboBox<>();
         septimoLabel = new javax.swing.JLabel();
-        numerosBox4 = new javax.swing.JComboBox<>();
-        numerosBox10 = new javax.swing.JComboBox<>();
-        numerosBox2 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        octavoLabel = new javax.swing.JLabel();
+        sextoLabel = new javax.swing.JLabel();
+        posicionTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Numero del caballo");
 
         jLabel4.setText("Posicion final:");
-
-        numerosBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox9ActionPerformed(evt);
-            }
-        });
-
-        segundoLabel.setText("Segundo:");
-
-        terceLabel.setText("Tercero:");
-
-        octavoLabel.setText("Octavo:");
 
         jLabel3.setText("Posicion final:");
 
@@ -83,86 +81,29 @@ public class IngresoResultados extends javax.swing.JDialog {
             }
         });
 
-        numerosBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox3ActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Numero del caballo");
+
+        jLabel5.setText("Por favor ingrese, en orden, los resultados de la carrera");
+
+        GanadorLabel.setText("Primero:");
+
+        terceLabel.setText("Tercero:");
 
         novenoLabel.setText("Noveno:");
 
-        numerosBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox6ActionPerformed(evt);
-            }
-        });
+        decimoLabel.setText("Décimo:");
+
+        segundoLabel.setText("Segundo:");
 
         cuartoLabel.setText("Cuarto:");
 
         quintoLabel.setText("Quinto:");
 
-        numerosBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox5ActionPerformed(evt);
-            }
-        });
-
-        sextoLabel.setText("Sexto:");
-
-        jLabel2.setText("Numero del caballo");
-
-        numerosBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox8ActionPerformed(evt);
-            }
-        });
-
-        numerosBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox1ActionPerformed(evt);
-            }
-        });
-
-        decimoLabel.setText("Décimo:");
-
-        GanadorLabel.setText("Primero:");
-
-        numerosBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox7ActionPerformed(evt);
-            }
-        });
-
         septimoLabel.setText("Séptimo:");
 
-        numerosBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox4ActionPerformed(evt);
-            }
-        });
+        octavoLabel.setText("Octavo:");
 
-        numerosBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox10ActionPerformed(evt);
-            }
-        });
-
-        numerosBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        numerosBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numerosBox2ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Por favor ingrese, en orden, los resultados de la carrera");
+        sextoLabel.setText("Sexto:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,57 +114,11 @@ public class IngresoResultados extends javax.swing.JDialog {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(37, 37, 37))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(segundoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(terceLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cuartoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(quintoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(GanadorLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(septimoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(sextoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(octavoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(novenoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(decimoLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(numerosBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -233,6 +128,37 @@ public class IngresoResultados extends javax.swing.JDialog {
                         .addGap(74, 74, 74)
                         .addComponent(jLabel5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(55, 55, 55)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(quintoLabel)
+                        .addComponent(cuartoLabel)
+                        .addComponent(terceLabel)
+                        .addComponent(GanadorLabel)
+                        .addComponent(segundoLabel))
+                    .addGap(28, 28, 28)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(posicionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(sextoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(septimoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(octavoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(novenoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(decimoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGap(29, 29, 29)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(posicionTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(posicionTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(55, 55, 55)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,51 +171,54 @@ public class IngresoResultados extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(GanadorLabel)
-                            .addComponent(numerosBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(segundoLabel)
-                            .addComponent(numerosBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(terceLabel)
-                            .addComponent(numerosBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cuartoLabel)
-                            .addComponent(numerosBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(quintoLabel)
-                            .addComponent(numerosBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sextoLabel)
-                            .addComponent(numerosBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(septimoLabel)
-                            .addComponent(numerosBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(octavoLabel)
-                            .addComponent(numerosBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(novenoLabel)
-                            .addComponent(numerosBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(decimoLabel)
-                            .addComponent(numerosBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
                 .addComponent(hechoButton)
                 .addGap(24, 24, 24))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(79, 79, 79)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(GanadorLabel)
+                                .addComponent(posicionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(posicionTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(segundoLabel))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(terceLabel)
+                                .addComponent(posicionTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cuartoLabel)
+                                .addComponent(posicionTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(quintoLabel)
+                                .addComponent(posicionTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(sextoLabel)
+                                .addComponent(posicionTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(septimoLabel)
+                                .addComponent(posicionTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(octavoLabel)
+                                .addComponent(posicionTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(novenoLabel)
+                                .addComponent(posicionTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(decimoLabel)
+                                .addComponent(posicionTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,51 +241,11 @@ public class IngresoResultados extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numerosBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox9ActionPerformed
-
     private void hechoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hechoButtonActionPerformed
         // TODO add your handling code here:
-
+        this.ingresoValido = true;
         dispose();
     }//GEN-LAST:event_hechoButtonActionPerformed
-
-    private void numerosBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox3ActionPerformed
-
-    private void numerosBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox6ActionPerformed
-
-    private void numerosBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox5ActionPerformed
-
-    private void numerosBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox8ActionPerformed
-
-    private void numerosBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox1ActionPerformed
-
-    private void numerosBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox7ActionPerformed
-
-    private void numerosBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox4ActionPerformed
-
-    private void numerosBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox10ActionPerformed
-
-    private void numerosBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numerosBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -412,17 +301,17 @@ public class IngresoResultados extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel novenoLabel;
-    private javax.swing.JComboBox<String> numerosBox1;
-    private javax.swing.JComboBox<String> numerosBox10;
-    private javax.swing.JComboBox<String> numerosBox2;
-    private javax.swing.JComboBox<String> numerosBox3;
-    private javax.swing.JComboBox<String> numerosBox4;
-    private javax.swing.JComboBox<String> numerosBox5;
-    private javax.swing.JComboBox<String> numerosBox6;
-    private javax.swing.JComboBox<String> numerosBox7;
-    private javax.swing.JComboBox<String> numerosBox8;
-    private javax.swing.JComboBox<String> numerosBox9;
     private javax.swing.JLabel octavoLabel;
+    private javax.swing.JTextField posicionTextField1;
+    private javax.swing.JTextField posicionTextField10;
+    private javax.swing.JTextField posicionTextField2;
+    private javax.swing.JTextField posicionTextField3;
+    private javax.swing.JTextField posicionTextField4;
+    private javax.swing.JTextField posicionTextField5;
+    private javax.swing.JTextField posicionTextField6;
+    private javax.swing.JTextField posicionTextField7;
+    private javax.swing.JTextField posicionTextField8;
+    private javax.swing.JTextField posicionTextField9;
     private javax.swing.JLabel quintoLabel;
     private javax.swing.JLabel segundoLabel;
     private javax.swing.JLabel septimoLabel;

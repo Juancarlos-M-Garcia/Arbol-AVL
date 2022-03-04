@@ -4,6 +4,7 @@
  */
 package com.mycompany.primerapractica.archivos;
 
+import com.mycompany.primerapractica.manejadores.ManejadorCarrera;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,6 +27,7 @@ public class LecturaArchivo {
             //con la linea leida, separamos los campos
             String[] campos = separarCampos(linea);
             Apuesta nueva = new Apuesta(campos);
+            ManejadorCarrera.agregarApuesta(nueva);
             //pasamos el texto a objeto
            
         }

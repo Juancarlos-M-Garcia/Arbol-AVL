@@ -15,6 +15,7 @@ public class Apuesta {
     private int[] posiciones = new int[10];
     private String[] datos ;
     private boolean validez = false;
+    private int puntos =0;
     
     public Apuesta(String NombreApostador, Double monto, int first, int secund,
                     int third, int four, int fifth, int six, int seven,
@@ -40,15 +41,17 @@ public class Apuesta {
     
     }
     
+    
     public void verificarDatos(String[]datos, boolean validez){
         try {
             for(int i= 0; i<datos.length; i++ ){	
                 switch(i){
 			case 0:				
 				this.nombreApostador = (String)datos[i];
-                                
-			case 1:					
-				this.monto= Double.parseDouble(datos[i]);	
+                                break;
+                        case 1:					
+				this.monto= Double.parseDouble(datos[i]);
+                                break;
                         default:					
 				this.posiciones[i-2] = Integer.parseInt(datos[i]); 
 		}
@@ -56,7 +59,7 @@ public class Apuesta {
 		if(this.posiciones.length==10){			
                     for(int i= 0; i<10; i++ ){
                         if(posiciones[i]>0 && posiciones[i]<11){
-                            validez = true;
+                            validez = isNumerosRepetidos(posiciones);
                         }else{
                             validez= false;
                             break;
@@ -73,18 +76,31 @@ public class Apuesta {
     }
        
     
-    public boolean isNumerosRepetidos(int[]datos, int disponibles){
+    public boolean isNumerosRepetidos(int[]datos){
         boolean x = false;
-            
-        
-        
+        int[] num = new int[]{1,2,3,4,5,6,7,8,9,10};          
+             
+            for(int i =0; i<datos.length;i++){
+               if(num[datos[i]-1] == -1){
+                   validez = false;
+                   break;
+               }else{
+                   num[datos[i]-1] = -1;
+                   validez = true;
+               }
+            }
         return x;
     }
+    //  num[dato[i]-1]=1      dato[0]=1
+    //  num[dato[i]-1]=-1      dato[1]=2
+    
     
     
     
     public Apuesta(String[]datos){
         this.datos = datos;
+        this.verificarDatos(datos, this.validez);
+        
     }
 
     public String[] getDatos() {

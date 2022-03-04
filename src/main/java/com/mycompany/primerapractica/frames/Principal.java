@@ -4,8 +4,11 @@
  */
 package com.mycompany.primerapractica.frames;
 
+import com.mycompany.primerapractica.archivos.LecturaArchivo;
 import com.mycompany.primerapractica.manejadores.*;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,9 +24,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        
+        this.setTitle("BetHorse");
+        this.setResizable(false);
         this.jLabel1.setIcon(new ImageIcon("src/main/Resources/fondo.jpeg"));
-        
+        this.terminarItem.setEnabled(false);
+        this.subirItem.setEnabled(false);
         this.ApostarButton.setEnabled(false);
     }
 
@@ -40,14 +45,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         ApostarButton = new javax.swing.JButton();
         resultadosButton = new javax.swing.JButton();
-        crearCarreraButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        iniciarItem = new javax.swing.JMenuItem();
+        terminarItem = new javax.swing.JMenuItem();
+        subirItem = new javax.swing.JMenuItem();
+        salirItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,24 +71,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        crearCarreraButton.setText("Crear nueva carrera");
-        crearCarreraButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearCarreraButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(ApostarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ApostarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(crearCarreraButton, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(resultadosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resultadosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
         jPanel2Layout.setVerticalGroup(
@@ -91,8 +87,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(crearCarreraButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(ApostarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ApostarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(resultadosButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -128,34 +123,42 @@ public class Principal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Opciones");
 
-        jMenuItem1.setText("Iniciar carrera");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        iniciarItem.setText("Iniciar carrera");
+        iniciarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                iniciarItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(iniciarItem);
 
-        jMenuItem2.setText("Terminar carrera");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        terminarItem.setText("Terminar carrera");
+        terminarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                terminarItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(terminarItem);
 
-        jMenuItem3.setText("Salir");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        subirItem.setText("Subir archivos");
+        subirItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                subirItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(subirItem);
+
+        salirItem.setText("Salir");
+        salirItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirItemActionPerformed(evt);
+            }
+        });
+        jMenu1.add(salirItem);
 
         jMenuBar1.add(jMenu1);
 
@@ -194,13 +197,6 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_resultadosButtonActionPerformed
 
-    private void crearCarreraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCarreraButtonActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_crearCarreraButtonActionPerformed
-
     private void ApostarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApostarButtonActionPerformed
         // TODO add your handling code here:
         try {
@@ -209,7 +205,7 @@ public class Principal extends javax.swing.JFrame {
                 ManejadorNuevaApuesta manejador = new ManejadorNuevaApuesta(ventana, this.carrera);
                 ventana.setManejador(manejador);
                 ventana.setVisible(true);
-                carrera.imprimirNombres();
+                
             }
                
         } catch (Exception e) {
@@ -218,29 +214,59 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ApostarButtonActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void iniciarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarItemActionPerformed
         // TODO add your handling code here:
         try {
             this.carrera = new ManejadorCarrera();
             this.carreraActiva = true;
             this.ApostarButton.setEnabled(true);
-            this.crearCarreraButton.setEnabled(false);
+            this.iniciarItem.setEnabled(false);
+            this.subirItem.setEnabled(true);
+            this.terminarItem.setEnabled(true);
             
         } catch (Exception e) {
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_iniciarItemActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void terminarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarItemActionPerformed
             // TODO add your handling code here:
             try{
+                this.iniciarItem.setEnabled(true);
+                this.subirItem.setEnabled(false);
+                this.terminarItem.setEnabled(false);
+                this.ApostarButton.setEnabled(false);
+                IngresoResultados ventana = new IngresoResultados(this, true);
+                do{
+                    ventana.setVisible(true);
+                }while(!ventana.ingresoValido);
                 
             }catch(Exception e){}
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_terminarItemActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void salirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirItemActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_salirItemActionPerformed
+
+    private void subirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subirItemActionPerformed
+        // TODO add your handling code here:
+          JFileChooser fileChosser = new JFileChooser();
+        int seleccion = fileChosser.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            //aqui selecciono y guardo el FILE que va a utilizar el FileReader
+            File fichero = fileChosser.getSelectedFile();
+            try {
+                LecturaArchivo r = new LecturaArchivo();
+                r.leerFichero(fichero);
+                
+                ManejadorCarrera.imprimirNombres(null);
+                
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error al leer el archivo");
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_subirItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,17 +305,17 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ApostarButton;
-    private javax.swing.JButton crearCarreraButton;
+    private javax.swing.JMenuItem iniciarItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton resultadosButton;
+    private javax.swing.JMenuItem salirItem;
+    private javax.swing.JMenuItem subirItem;
+    private javax.swing.JMenuItem terminarItem;
     // End of variables declaration//GEN-END:variables
 }
