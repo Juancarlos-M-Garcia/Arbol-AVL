@@ -55,6 +55,7 @@ public class Principal extends javax.swing.JFrame {
         iniciarItem = new javax.swing.JMenuItem();
         terminarItem = new javax.swing.JMenuItem();
         subirItem = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         salirItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -148,13 +149,21 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(terminarItem);
 
-        subirItem.setText("Subir archivos");
+        subirItem.setText("Subir apuestas");
         subirItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subirItemActionPerformed(evt);
             }
         });
         jMenu1.add(subirItem);
+
+        jMenuItem2.setText("Cierre de apuestas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         salirItem.setText("Salir");
         salirItem.addActionListener(new java.awt.event.ActionListener() {
@@ -248,9 +257,7 @@ public class Principal extends javax.swing.JFrame {
             try{
                 
                 this.iniciarItem.setEnabled(true);
-                this.subirItem.setEnabled(false);
                 this.terminarItem.setEnabled(false);
-                this.ApostarButton.setEnabled(false);
                 this.resultadosButton.setEnabled(true);
                 IngresoResultados ventana = new IngresoResultados(this, true, this.manejadorApuesta );
                 do{
@@ -299,6 +306,12 @@ public class Principal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        this.ApostarButton.setEnabled(false);
+        this.subirItem.setEnabled(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +355,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
