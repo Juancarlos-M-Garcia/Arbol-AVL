@@ -16,19 +16,16 @@ import javax.swing.JTextField;
  */
 public class ManejadorNuevaApuesta {
 
-    private NuevaApuesta ventana;
+   
     private int numerosDisponibles[] = {1,2,3,4,5,6,7,8,9,10};
-    private int ordenApuesta[] = new int[10];
-    private boolean apuestaDisponible = false;
-    private ManejadorCarrera carrera;
-    
-    public ManejadorNuevaApuesta(NuevaApuesta ventana, ManejadorCarrera carrera) {
-        this.ventana = ventana;
-        this.carrera = carrera;  
-        
+    private int ordenNumeros[] = new int[10];
+    private int resultados[] = new int[10];
+
+    public ManejadorNuevaApuesta() {
     }
     
-    @SuppressWarnings("empty-statement")
+    
+    
     public boolean evaluarNumerosIngresados(JTextField texto, int lugar){
         boolean exito = false; 
         try {
@@ -36,22 +33,20 @@ public class ManejadorNuevaApuesta {
             if(num<11 && num>0){    
                     if(numerosDisponibles[num-1] == num ){
                         this.numerosDisponibles[num-1]=-1;
-                        ordenApuesta[lugar] = num;
+                        ordenNumeros[lugar] = num;
                         this.borrarNumero(num);
                         exito = true;
                         
                     }else if(numerosDisponibles[num-1] == -1){
-                        JOptionPane.showMessageDialog(null, "Los numeros detro de las casillas no deben estar repetidos.\nPor favor intentelo de nuevo");
+                       
                 texto.setText("");
                     }
-                    
-                
             }else{
-                JOptionPane.showMessageDialog(null, "Por favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas");
+                
                 texto.setText("");
             }    
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Hay un error en uno de los datos que ingreso. \nPor favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas");
+            
             texto.setText("");
         }        
         return exito;
@@ -66,14 +61,15 @@ public class ManejadorNuevaApuesta {
     }
     
     
-    public void crearObjeto(JTextField nombre ,JTextField monto  ){
+    public void crearApuesta(JTextField nombre ,JTextField monto  ){
         try {
             String nom = (String) nombre.getText();
             double mon = Double.parseDouble(monto.getText());
             try {
                 if(nom != null && mon > 0){
-                Apuesta apuesta  = new Apuesta(nom, mon, this.ordenApuesta );
-                carrera.agregarApuesta(apuesta);
+                Apuesta apuesta  = new Apuesta(nom, mon, this.ordenNumeros );
+                apuesta.isNumerosRepetidos(apuesta.getPosiciones());
+                ManejadorCarrera.agregarApuesta(apuesta, apuesta.isValidez());
                 }else{
                     System.out.println("Por favor llenar los espacion de nombre y monto correctamente.\n Casiilas Nombre con su nombre y monto con la cantidad de dinero que desea apostar");
                 }
@@ -94,6 +90,21 @@ public class ManejadorNuevaApuesta {
             numerosDisponibles[i]= i+1;
         }
     }
+
+    public int[] getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(int[] resultados) {
+        this.resultados = resultados;
+    }
+
+    public int[] getOrdenNumeros() {
+        return ordenNumeros;
+    }
+
+    
+    
     
     
     

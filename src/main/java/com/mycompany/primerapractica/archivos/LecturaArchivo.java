@@ -27,7 +27,8 @@ public class LecturaArchivo {
             //con la linea leida, separamos los campos
             String[] campos = separarCampos(linea);
             Apuesta nueva = new Apuesta(campos);
-            ManejadorCarrera.agregarApuesta(nueva);
+            nueva.verificarDatos(nueva.getDatos(), nueva.isValidez());
+            ManejadorCarrera.agregarApuesta(nueva, nueva.isValidez());
             //pasamos el texto a objeto
            
         }
@@ -37,7 +38,7 @@ public class LecturaArchivo {
     
        public String[] separarCampos( String linea){
         String lineaDeCampos = linea;
-        System.out.println(lineaDeCampos);
+        //System.out.println(lineaDeCampos);
         String[] campos = lineaDeCampos.split(",");
         return campos;
     }

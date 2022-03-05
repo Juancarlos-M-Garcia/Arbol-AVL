@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class Principal extends javax.swing.JFrame {
 
     private ManejadorCarrera carrera;
+    private ManejadorNuevaApuesta manejadorApuesta; 
     private boolean carreraActiva = false;
     /**
      * Creates new form Principal
@@ -30,6 +31,8 @@ public class Principal extends javax.swing.JFrame {
         this.terminarItem.setEnabled(false);
         this.subirItem.setEnabled(false);
         this.ApostarButton.setEnabled(false);
+        this.manejadorApuesta = new ManejadorNuevaApuesta();
+        this.resultadosButton.setEnabled(false);
     }
 
     /**
@@ -54,6 +57,7 @@ public class Principal extends javax.swing.JFrame {
         subirItem = new javax.swing.JMenuItem();
         salirItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,6 +167,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Reportes");
+
+        jMenuItem1.setText("Apuestas no validas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -195,15 +208,17 @@ public class Principal extends javax.swing.JFrame {
 
     private void resultadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadosButtonActionPerformed
         // TODO add your handling code here:
+        this.carrera.evaluarApuestas(null);
+        Resultados ventana = new Resultados(this, true, true);
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_resultadosButtonActionPerformed
 
     private void ApostarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApostarButtonActionPerformed
         // TODO add your handling code here:
         try {
             if(carreraActiva){
-                NuevaApuesta ventana = new NuevaApuesta(this, true);
-                ManejadorNuevaApuesta manejador = new ManejadorNuevaApuesta(ventana, this.carrera);
-                ventana.setManejador(manejador);
+                NuevaApuesta ventana = new NuevaApuesta(this, true, this.manejadorApuesta);
                 ventana.setVisible(true);
                 
             }
@@ -231,16 +246,25 @@ public class Principal extends javax.swing.JFrame {
     private void terminarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarItemActionPerformed
             // TODO add your handling code here:
             try{
+                
                 this.iniciarItem.setEnabled(true);
                 this.subirItem.setEnabled(false);
                 this.terminarItem.setEnabled(false);
                 this.ApostarButton.setEnabled(false);
-                IngresoResultados ventana = new IngresoResultados(this, true);
+                this.resultadosButton.setEnabled(true);
+                IngresoResultados ventana = new IngresoResultados(this, true, this.manejadorApuesta );
                 do{
+                    
                     ventana.setVisible(true);
+                    this.carrera.setResultados(this.manejadorApuesta.getOrdenNumeros());
+                    
+                    //ManejadorCarrera.imprimirApuestas(null, true);
+                    
                 }while(!ventana.ingresoValido);
                 
-            }catch(Exception e){}
+            }catch(Exception e){
+                System.out.println(e);
+            }
     }//GEN-LAST:event_terminarItemActionPerformed
 
     private void salirItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirItemActionPerformed
@@ -259,7 +283,8 @@ public class Principal extends javax.swing.JFrame {
                 LecturaArchivo r = new LecturaArchivo();
                 r.leerFichero(fichero);
                 
-                ManejadorCarrera.imprimirNombres(null);
+                //ManejadorCarrera.imprimirApuestas(null, true);
+                //ManejadorCarrera.imprimirApuestas(null, false);
                 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Error al leer el archivo");
@@ -267,6 +292,12 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_subirItemActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Resultados ventana = new Resultados(this, true, false);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,6 +341,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

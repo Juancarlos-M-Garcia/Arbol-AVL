@@ -4,29 +4,47 @@
  */
 package com.mycompany.primerapractica.modelos;
 
+import com.mycompany.primerapractica.listas.Lista;
+
 /**
  *
  * @author manu
  */
 public class Carrera {
     private static int noCarrera;
-    private String[] ordenFinal= new String[10];
+    private int[] resultados= new int[10];
+    private Lista<Apuesta> apuestas = new Lista<Apuesta>(); 
 
-    
-    public Carrera(){
-        noCarrera++;
+    public static int getNoCarrera() {
+        return noCarrera;
+    }
+
+    public static void setNoCarrera(int noCarrera) {
+        Carrera.noCarrera = noCarrera;
+    }
+
+    public int[] getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(int[] resultados) {
+        this.resultados = resultados;
+    }
+
+    public Lista<Apuesta> getApuestas() {
+        return apuestas;
+    }
+
+    public void setApuestas(Lista<Apuesta> apuestas) {
+        this.apuestas = apuestas;
     }
 
     
-
-    public String[] getOrdenFinal() {
-        return ordenFinal;
-    }
-
-    public void setOrdenFinal(String[] ordenFinal) {
-        this.ordenFinal = ordenFinal;
-    }
     
+
+    
+
+
     
     
     

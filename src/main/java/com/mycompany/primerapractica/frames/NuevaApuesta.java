@@ -6,6 +6,7 @@ package com.mycompany.primerapractica.frames;
 
 import com.mycompany.primerapractica.manejadores.ManejadorNuevaApuesta;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -15,17 +16,19 @@ import javax.swing.JTextField;
 public class NuevaApuesta extends javax.swing.JDialog {
     
     private boolean ejecuatar = false;
-    private ManejadorNuevaApuesta manejador;
+    private ManejadorNuevaApuesta manejadorApuesta;
     /**
      * Creates new form NuevaApuesta
      */
-    public NuevaApuesta(java.awt.Frame parent, boolean modal) {
+    public NuevaApuesta(java.awt.Frame parent, boolean modal, ManejadorNuevaApuesta manejador ) {
         super(parent, modal);
         initComponents();
+        
+        this.manejadorApuesta= manejador;
     }
 
     public void setManejador(ManejadorNuevaApuesta manejador) {
-        this.manejador = manejador;
+        this.manejadorApuesta = manejador;
     }
     
     
@@ -281,27 +284,29 @@ public class NuevaApuesta extends javax.swing.JDialog {
     private void crearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearButtonActionPerformed
         // TODO add your handling code here:
         try {
-            boolean x1 = this.manejador.evaluarNumerosIngresados(this.posicionTextField1, 0);
-            boolean x2 =this.manejador.evaluarNumerosIngresados(this.posicionTextField2, 1);
-            boolean x3 =this.manejador.evaluarNumerosIngresados(this.posicionTextField3, 2);
-            boolean x4 =this.manejador.evaluarNumerosIngresados(this.posicionTextField4, 3);
-            boolean x5 =this.manejador.evaluarNumerosIngresados(this.posicionTextField5, 4);
-            boolean x6 =this.manejador.evaluarNumerosIngresados(this.posicionTextField6, 5);
-            boolean x7 =this.manejador.evaluarNumerosIngresados(this.posicionTextField7, 6);
-            boolean x8 = this.manejador.evaluarNumerosIngresados(this.posicionTextField8, 7);
-            boolean x9 = this.manejador.evaluarNumerosIngresados(this.posicionTextField9, 8);
-            boolean x10=this.manejador.evaluarNumerosIngresados(this.posicionTextField10, 9);
+            boolean x1 = this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField1, 0);
+            boolean x2 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField2, 1);
+            boolean x3 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField3, 2);
+            boolean x4 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField4, 3);
+            boolean x5 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField5, 4);
+            boolean x6 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField6, 5);
+            boolean x7 =this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField7, 6);
+            boolean x8 = this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField8, 7);
+            boolean x9 = this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField9, 8);
+            boolean x10=this.manejadorApuesta.evaluarNumerosIngresados(this.posicionTextField10, 9);
             
             
             if(!x1||!x2||!x3||!x4||!x5||!x6||!x7||!x8||!x9||!x10){
-                manejador.llenarNumerosDisponibles();
-                
+                manejadorApuesta.llenarNumerosDisponibles();
+                JOptionPane.showMessageDialog(null, "Por favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas y que no eseten repetidos");
             }else {
-                this.manejador.crearObjeto(nombreTextField, montoTextField);
+                this.manejadorApuesta.crearApuesta(nombreTextField, montoTextField );
+                manejadorApuesta.llenarNumerosDisponibles();
                 dispose();
             }
             
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Por favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas y que no eseten repetidos");
         }
         
         
@@ -337,7 +342,7 @@ public class NuevaApuesta extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                NuevaApuesta dialog = new NuevaApuesta(new javax.swing.JFrame(), true);
+                NuevaApuesta dialog = new NuevaApuesta(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

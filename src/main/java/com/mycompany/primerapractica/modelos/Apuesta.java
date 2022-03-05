@@ -35,9 +35,10 @@ public class Apuesta {
     }
     
     public Apuesta(String nombreApostador, Double monto, int[] Orden){
-        this.nombreApostador = nombreApostador;
+        this.nombreApostador= nombreApostador;
         this.monto = monto;
         this.posiciones = Orden;
+        
     
     }
     
@@ -59,7 +60,7 @@ public class Apuesta {
 		if(this.posiciones.length==10){			
                     for(int i= 0; i<10; i++ ){
                         if(posiciones[i]>0 && posiciones[i]<11){
-                            validez = isNumerosRepetidos(posiciones);
+                            isNumerosRepetidos(posiciones);
                         }else{
                             validez= false;
                             break;
@@ -76,8 +77,8 @@ public class Apuesta {
     }
        
     
-    public boolean isNumerosRepetidos(int[]datos){
-        boolean x = false;
+    public void isNumerosRepetidos(int[]datos){
+       
         int[] num = new int[]{1,2,3,4,5,6,7,8,9,10};          
              
             for(int i =0; i<datos.length;i++){
@@ -89,7 +90,7 @@ public class Apuesta {
                    validez = true;
                }
             }
-        return x;
+      
     }
     //  num[dato[i]-1]=1      dato[0]=1
     //  num[dato[i]-1]=-1      dato[1]=2
@@ -99,7 +100,6 @@ public class Apuesta {
     
     public Apuesta(String[]datos){
         this.datos = datos;
-        this.verificarDatos(datos, this.validez);
         
     }
 
@@ -142,6 +142,14 @@ public class Apuesta {
 
     public void setPosiciones(int[] posiciones) {
         this.posiciones = posiciones;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
     
     

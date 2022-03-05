@@ -4,19 +4,26 @@
  */
 package com.mycompany.primerapractica.frames;
 
+import com.mycompany.primerapractica.manejadores.ManejadorNuevaApuesta;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author manu
  */
 public class IngresoResultados extends javax.swing.JDialog {
-
+    
+    private ManejadorNuevaApuesta manejador;
     boolean ingresoValido = false;
     /**
      * Creates new form IngresoResultados
      */
-    public IngresoResultados(java.awt.Frame parent, boolean modal) {
+    public IngresoResultados(java.awt.Frame parent, boolean modal, ManejadorNuevaApuesta manejador ) {
         super(parent, modal);
         initComponents();
+        
+        this.manejador = manejador;
+        
     }
 
     public boolean isIngresoValido() {
@@ -243,8 +250,33 @@ public class IngresoResultados extends javax.swing.JDialog {
 
     private void hechoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hechoButtonActionPerformed
         // TODO add your handling code here:
-        this.ingresoValido = true;
-        dispose();
+           try {
+            boolean x1 = this.manejador.evaluarNumerosIngresados(this.posicionTextField1, 0);
+            boolean x2 =this.manejador.evaluarNumerosIngresados(this.posicionTextField2, 1);
+            boolean x3 =this.manejador.evaluarNumerosIngresados(this.posicionTextField3, 2);
+            boolean x4 =this.manejador.evaluarNumerosIngresados(this.posicionTextField4, 3);
+            boolean x5 =this.manejador.evaluarNumerosIngresados(this.posicionTextField5, 4);
+            boolean x6 =this.manejador.evaluarNumerosIngresados(this.posicionTextField6, 5);
+            boolean x7 =this.manejador.evaluarNumerosIngresados(this.posicionTextField7, 6);
+            boolean x8 = this.manejador.evaluarNumerosIngresados(this.posicionTextField8, 7);
+            boolean x9 = this.manejador.evaluarNumerosIngresados(this.posicionTextField9, 8);
+            boolean x10=this.manejador.evaluarNumerosIngresados(this.posicionTextField10, 9);
+            
+            
+            if(!x1||!x2||!x3||!x4||!x5||!x6||!x7||!x8||!x9||!x10){
+                JOptionPane.showMessageDialog(null, "Por favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas y que no eseten repetidos");
+                manejador.llenarNumerosDisponibles();
+                
+            }else {
+                this.manejador.setResultados(manejador.getOrdenNumeros());
+                this.ingresoValido = true;
+                dispose();
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Por favor solo ingrese numeros enteros de 1 a 10 dentro de las casillas y que no eseten repetidos");
+        }
+       
     }//GEN-LAST:event_hechoButtonActionPerformed
 
     /**
@@ -277,7 +309,7 @@ public class IngresoResultados extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IngresoResultados dialog = new IngresoResultados(new javax.swing.JFrame(), true);
+                IngresoResultados dialog = new IngresoResultados(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
