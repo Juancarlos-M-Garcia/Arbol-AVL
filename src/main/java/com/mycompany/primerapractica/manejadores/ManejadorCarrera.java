@@ -21,6 +21,7 @@ public class ManejadorCarrera {
     public static Lista<Apuesta> apuestasValidas =new Lista<Apuesta>();
     public static Lista<Apuesta> apuestasNoValidas = new Lista<Apuesta>();
     public static Lista<Apuesta> apuestas = new Lista<Apuesta>();
+    public static Lista<Apuesta> apuestasValildasOrdenadas = new Lista<Apuesta>();
     public static int[] resultados;
     
     
@@ -105,6 +106,15 @@ public class ManejadorCarrera {
                     evaluar.getContenido().setPuntos(suma);
                 }
         }
+    }
+    
+    
+    public static void ordenarLista( Lista<Apuesta> lista){
+        
+       
+       
+    
+    
     }
     
     
