@@ -17,7 +17,7 @@
                     <manifest>
                         <addClasspath>true</addClasspath>
                         <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>com.mycompany.primeraPractica.Manejadores.Main</mainClass>
+                        <mainClass>com.mycompany.primerapractica.manejadores.Main</mainClass>
                     </manifest>
                 </archive>
                 </configuration>

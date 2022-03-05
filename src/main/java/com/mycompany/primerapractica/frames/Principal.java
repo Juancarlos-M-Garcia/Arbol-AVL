@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setTitle("BetHorse");
         this.setResizable(false);
-        this.jLabel1.setIcon(new ImageIcon("src/main/Resources/fondo.jpeg"));
+        this.jLabel1.setIcon(new ImageIcon("src/main/resources/fondo.jpeg"));
         this.terminarItem.setEnabled(false);
         this.subirItem.setEnabled(false);
         this.ApostarButton.setEnabled(false);
