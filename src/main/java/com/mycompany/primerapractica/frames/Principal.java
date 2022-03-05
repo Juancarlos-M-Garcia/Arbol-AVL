@@ -31,6 +31,8 @@ public class Principal extends javax.swing.JFrame {
         this.terminarItem.setEnabled(false);
         this.subirItem.setEnabled(false);
         this.ApostarButton.setEnabled(false);
+        this.noValidosItem.setEnabled(false);
+        this.cierreItem.setEnabled(false);
         this.manejadorApuesta = new ManejadorNuevaApuesta();
         this.resultadosButton.setEnabled(false);
     }
@@ -55,9 +57,9 @@ public class Principal extends javax.swing.JFrame {
         iniciarItem = new javax.swing.JMenuItem();
         terminarItem = new javax.swing.JMenuItem();
         subirItem = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        cierreItem = new javax.swing.JMenuItem();
         salirItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        noValidosItem = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -157,13 +159,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(subirItem);
 
-        jMenuItem2.setText("Cierre de apuestas");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        cierreItem.setText("Cierre de apuestas");
+        cierreItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                cierreItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(cierreItem);
 
         salirItem.setText("Salir");
         salirItem.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +177,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Reportes");
+        noValidosItem.setText("Reportes");
 
         jMenuItem1.setText("Apuestas no validas");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,9 +185,9 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        noValidosItem.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(noValidosItem);
 
         setJMenuBar(jMenuBar1);
 
@@ -247,6 +249,8 @@ public class Principal extends javax.swing.JFrame {
             this.iniciarItem.setEnabled(false);
             this.subirItem.setEnabled(true);
             this.terminarItem.setEnabled(true);
+            this.cierreItem.setEnabled(true);
+            this.noValidosItem.setEnabled(true);
             
         } catch (Exception e) {
         }
@@ -306,11 +310,12 @@ public class Principal extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void cierreItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cierreItemActionPerformed
         // TODO add your handling code here:
         this.ApostarButton.setEnabled(false);
         this.subirItem.setEnabled(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        this.cierreItem.setEnabled(false);
+    }//GEN-LAST:event_cierreItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,16 +354,16 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ApostarButton;
+    private javax.swing.JMenuItem cierreItem;
     private javax.swing.JMenuItem iniciarItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenu noValidosItem;
     private javax.swing.JButton resultadosButton;
     private javax.swing.JMenuItem salirItem;
     private javax.swing.JMenuItem subirItem;
